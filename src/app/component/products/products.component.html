@@ -29,13 +29,14 @@
 
 <div class="container">
     <div class="row">
-        <ng-container *ngFor="let item of productList">
+        <ng-container *ngFor="let item of filterCategory | filter:searchKey: 'title'">
             <div class="card col-md-3">
                 <img [src]="item.image" alt="">
                 <h5 class="item-detail">{{item.title}}</h5>
                 <p class="item-detail">{{item.description}}</p>
                 <p> <strong>Price:</strong>${{item.price}}</p>
-                <button class="btn btn-primary">Add to cart</button>
+                <button class="btn btn-primary"
+                (click)="addToCart(item)">Add to cart</button>
             </div>
         </ng-container>
     </div>
